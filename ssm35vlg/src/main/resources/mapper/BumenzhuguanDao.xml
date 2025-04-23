@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.BumenzhuguanDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.BumenzhuguanEntity" id="bumenzhuguanMap">
+        <result property="zhuguanzhanghao" column="zhuguanzhanghao"/>
+        <result property="mima" column="mima"/>
+        <result property="zhuguanxingming" column="zhuguanxingming"/>
+        <result property="bumen" column="bumen"/>
+        <result property="zhuguanxingbie" column="zhuguanxingbie"/>
+        <result property="zhuguanshouji" column="zhuguanshouji"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.BumenzhuguanVO" >
+		SELECT * FROM bumenzhuguan  bumenzhuguan         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.BumenzhuguanVO" >
+		SELECT  bumenzhuguan.* FROM bumenzhuguan  bumenzhuguan
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.BumenzhuguanView" >
+
+		SELECT  bumenzhuguan.* FROM bumenzhuguan  bumenzhuguan 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.BumenzhuguanView" >
+		SELECT * FROM bumenzhuguan  bumenzhuguan <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+	
+</mapper>
